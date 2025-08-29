@@ -1,0 +1,77 @@
+[project]
+name = "subliminal-learning"
+version = "0.1.0"
+description = "Exploring subliminal learning via SAEs"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ipykernel>=6.30.0",
+    "ipywidgets>=8.1.7",
+    "litellm>=1.74.8",
+    "nbformat>=4.2.0",
+    "openai>=1.97.1",
+    "pandas>=2.3.1",
+    "plotly",
+    "polars>=1.31.0",
+    "pydantic>=2.0.0",
+    "transformer-lens>=1.0.0",
+    "orjson>=3.11.1",
+    "jupyterlab>=4.4.5",
+    "colorama>=0.4.6",
+    "wandb>=0.21.0",
+    "jinja2>=3.1.6",
+    "torch>=2.6.0",
+    "vllm>=0.8.5.post1",
+    "transformers>=4.52.4,<4.54.0",
+    "dill>=0.3.8",
+    "typing-extensions>=4.14.1",
+    "optuna>=4.4.0",
+    "jupyter>=1.1.1",
+    "notebook>=7.4.5",
+    "scikit-learn>=1.7.1",
+    "matplotlib>=3.10.5",
+    "lightgbm>=4.6.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["subliminal_learning"]
+
+[tool.uv]
+package = true
+default-groups = []
+no-build-isolation-package = ["flash-attn"] 
+conflicts = [
+    [
+      { group = "sae" },
+      { group = "dev" },
+    ],
+]
+
+[dependency-groups]
+sae = [
+    "sae-lens>=6.0.0",
+]
+dev = [
+    "unsloth==2025.8.1",
+    "trl==0.19.1",
+    "unsloth-zoo>=2025.4.4",
+    "flash-attn @ https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.6cxx11abiFALSE-cp311-cp311-linux_x86_64.whl",
+]   
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "tab"
+docstring-code-format = true
