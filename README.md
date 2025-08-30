@@ -1,6 +1,6 @@
 # Mechanisms of Subliminal Learning
 
-**Please see this blog post: [blog post](https://ariahw.github.io/2025/08/29/subliminal-learning/)**
+**Please see this blog post: [blog post](https://ariahw.github.io/blog/2025/08/29/subliminal-learning/)**
 
 This repository performs follow-up experiments to [this paper](https://arxiv.org/abs/2507.14805) and [this repository](https://github.com/MinhxLe/subliminal-learning/tree/main). 
 
